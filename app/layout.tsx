@@ -6,7 +6,7 @@ import './globals.css'
 const dmSans = DM_Sans({ subsets: ['latin'], variable: '--font-dm-sans' })
 
 export const metadata: Metadata = {
-  title: 'Tu Nombre | Desarrollador de Software',
+  title: 'Leonardo Pinedo Fernandez | Desarrollador de Software',
   description: 'Portafolio de programacion - Desarrollador Full Stack especializado en aplicaciones web modernas.',
   icons: {
     icon: [
