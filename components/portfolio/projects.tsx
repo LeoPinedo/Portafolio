@@ -12,7 +12,7 @@ const featuredProjects = [
     technologies: ["React","Next.js", "Node.js", "Tailwind", "TypeScript"],
     external: "https://www.zipago.pe/",
     github: null as string | null,
-    image: `${basePath}/zipago-landing.png`,
+    image: null as string | null, // Poner imagen en public/zipago-landing.png para mostrarla
   },
   {
     title: "Rediseño de la plataforma Zipago Comercio",
@@ -21,14 +21,14 @@ const featuredProjects = [
     technologies: ["Next.js", "TypeScript", "PostgreSQL", "Tailwind"],
     external: "https://www.zrelcloudadm.com/ZIPAGO_RECAUDO/ZIPAGO_WebApp",
     github: null as string | null,
-    image: `${basePath}/zipago-plataforma.png`,
+    image: null as string | null, // public/zipago-plataforma.png
   },
   {
     title: "Desarrollo de aplicacion movil para Zipago Comercio (Android)",
     description:
       "Una aplicacion movil para que los usuarios puedan realizar consultas de sus pagos y gestiones de su cuenta, optimizado en rendimiento y accesibilidad todo siendo responsive para moviles",
     technologies: ["React","Next.js", "Node.js", "WebSockets", "Android","MYSQL","Jwt","Java","Kotlin"],
-    image: `${basePath}/zipago-movil.png`,
+    image: null as string | null, // public/zipago-movil.png
   },
 ]
 
