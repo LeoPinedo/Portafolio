@@ -1,17 +1,51 @@
-import { ExternalLink, Github, Folder } from "lucide-react"
+import { ExternalLink, Github } from "lucide-react"
 import Image from "next/image"
 import { SectionHeading } from "./section-heading"
 
 const basePath = process.env.BASE_PATH || ""
 
-const featuredProjects = [
+type FeaturedProject = {
+  title: string
+  description: string
+  technologies: string[]
+  external?: string
+  github?: string | null
+  image?: string
+  images?: string[]
+}
+
+const featuredProjects: FeaturedProject[] = [
+  {
+    title: "Planner Obras",
+    description:
+      "Plataforma web para gestion de proyectos de construccion que centraliza tareas, reuniones, minutas, evidencias y documentacion con control por roles.",
+    technologies: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind",
+      "Node.js",
+      "Express",
+      "Prisma",
+      "PostgreSQL",
+      "NextAuth",
+      "Google Drive API",
+    ],
+    github: null,
+    images: [
+      `${basePath}/img1.png`,
+      `${basePath}/img2.png`,
+      `${basePath}/img3.png`,
+      `${basePath}/img4.png`,
+    ],
+  },
   {
     title: "Desarrollo de landing page Zipago Comercio",
     description:
       "Un pagina de landing para llamar a los usuarios y convertirlos en proximos clientes, optimizado en rendimiento y accesibilidad todo siendo responsive.",
-    technologies: ["React","Next.js", "Node.js", "Tailwind", "TypeScript"],
+    technologies: ["React", "Next.js", "Node.js", "Tailwind", "TypeScript"],
     external: "https://www.zipago.pe/",
-    github: null as string | null,
+    github: null,
     image: `${basePath}/zipago ss .png`,
   },
   {
@@ -20,14 +54,24 @@ const featuredProjects = [
       "Una con un diseño nuevo respetando la paleta de colores del landing page de comercio con un mejor rendimiento y accesibilidad responsive.",
     technologies: ["Next.js", "TypeScript", "PostgreSQL", "Tailwind"],
     external: "https://www.zrelcloudadm.com/ZIPAGO_RECAUDO/ZIPAGO_WebApp",
-    github: null as string | null,
+    github: null,
     image: `${basePath}/Zipago Comerccio ss.png`,
   },
   {
     title: "Desarrollo de aplicacion movil para Zipago Comercio (Android)",
     description:
       "Una aplicacion movil para que los usuarios puedan realizar consultas de sus pagos y gestiones de su cuenta, optimizado en rendimiento y accesibilidad todo siendo responsive para moviles",
-    technologies: ["React","Next.js", "Node.js", "WebSockets", "Android","MYSQL","Jwt","Java","Kotlin"],
+    technologies: [
+      "React",
+      "Next.js",
+      "Node.js",
+      "WebSockets",
+      "Android",
+      "MYSQL",
+      "Jwt",
+      "Java",
+      "Kotlin",
+    ],
     image: `${basePath}/Zipago Comerccio Movil.png`,
   },
 ]
@@ -79,17 +123,36 @@ export function Projects() {
             }`}
           >
             {/* Project Image */}
-            <div className="relative aspect-video w-full overflow-hidden rounded-lg bg-secondary lg:w-3/5">
-              {project.image ? (
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 60vw"
-                />
+            <div className="relative w-full overflow-hidden rounded-lg bg-secondary lg:w-3/5">
+              {project.images?.length ? (
+                <div className="grid grid-cols-1 gap-2 p-2 sm:grid-cols-2">
+                  {project.images.map((image, imageIndex) => (
+                    <div
+                      key={`${project.title}-${imageIndex}`}
+                      className="relative aspect-video overflow-hidden rounded-md"
+                    >
+                      <Image
+                        src={image}
+                        alt={`${project.title} captura ${imageIndex + 1}`}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 30vw"
+                      />
+                    </div>
+                  ))}
+                </div>
+              ) : project.image ? (
+                <div className="relative aspect-video w-full">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 60vw"
+                  />
+                </div>
               ) : (
-                <div className="flex h-full w-full items-center justify-center bg-primary/5">
+                <div className="flex aspect-video w-full items-center justify-center bg-primary/5">
                   <span className="font-mono text-4xl text-primary/20">
                     {"{ }"}
                   </span>

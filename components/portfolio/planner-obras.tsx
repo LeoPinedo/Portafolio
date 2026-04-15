@@ -90,20 +90,6 @@ export function PlannerObras() {
         </div>
 
         <div>
-          <h3 className="text-lg font-semibold text-foreground">
-            Flujo visual recomendado (6-8 capturas)
-          </h3>
-          <ul className="mt-4 flex flex-col gap-3">
-            {imageNarrative.map((item) => (
-              <li key={item} className="flex gap-3 text-sm text-muted-foreground">
-                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div>
           <h3 className="text-lg font-semibold text-foreground">Tecnologias</h3>
           <div className="mt-4 grid gap-4 md:grid-cols-2">
             {stackGroups.map((group) => (
