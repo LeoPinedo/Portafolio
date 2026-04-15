@@ -2,7 +2,7 @@ export function Contact() {
   return (
     <section id="contact" className="py-24">
       <div className="mx-auto max-w-lg text-center">
-        <p className="font-mono text-sm text-primary">04. Contacto</p>
+        <p className="font-mono text-sm text-primary">05. Contacto</p>
         <h2 className="mt-4 text-balance text-4xl font-bold text-foreground">
           Hablemos
         </h2>
