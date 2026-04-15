@@ -125,18 +125,27 @@ export function Projects() {
             {/* Project Image */}
             <div className="relative w-full overflow-hidden rounded-lg bg-secondary lg:w-3/5">
               {project.images?.length ? (
-                <div className="grid grid-cols-1 gap-2 p-2 sm:grid-cols-2">
-                  {project.images.map((image, imageIndex) => (
+                <div className="grid grid-cols-1 gap-2 p-2 md:grid-cols-2 md:grid-rows-2">
+                  <div className="relative aspect-video overflow-hidden rounded-md border border-border bg-background md:row-span-2 md:aspect-auto md:min-h-[300px]">
+                    <Image
+                      src={project.images[0]}
+                      alt={`${project.title} captura principal`}
+                      fill
+                      className="object-contain p-1"
+                      sizes="(max-width: 768px) 100vw, 40vw"
+                    />
+                  </div>
+                  {project.images.slice(1, 4).map((image, imageIndex) => (
                     <div
-                      key={`${project.title}-${imageIndex}`}
-                      className="relative aspect-video overflow-hidden rounded-md"
+                      key={`${project.title}-${imageIndex + 1}`}
+                      className="relative aspect-video overflow-hidden rounded-md border border-border bg-background"
                     >
                       <Image
                         src={image}
-                        alt={`${project.title} captura ${imageIndex + 1}`}
+                        alt={`${project.title} captura ${imageIndex + 2}`}
                         fill
-                        className="object-cover"
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 30vw"
+                        className="object-contain p-1"
+                        sizes="(max-width: 768px) 100vw, 20vw"
                       />
                     </div>
                   ))}
